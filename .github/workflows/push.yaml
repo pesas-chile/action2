@@ -6,12 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+          username: faceporte
+          password: pesaschile123        
     - name: build and push to docker
       uses: docker/build-push-action@v2
       with:
-        username: faceporte
-        password: pesaschile123
-        repository: faceporte/action
-        tag_with_ref: true
-        tag_with_sha: true
-        tags: ${{ github.sha }}
+        context: .
+        push: true
+        tags: faceporte/action:latest
