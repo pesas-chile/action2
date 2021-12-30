@@ -1,5 +1,5 @@
 on: push
-name: deploy
+name: Subir imagen a docker hub
 jobs:
   build-and-push:
     name: build and push image
